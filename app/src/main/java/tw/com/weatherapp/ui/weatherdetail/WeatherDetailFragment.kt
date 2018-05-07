@@ -49,7 +49,7 @@ class WeatherDetailFragment : Fragment(),WeatherDetailFragmentScreen {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.weather_detail_frag, container, false)
         city = rootView.findViewById(R.id.city)
         details = rootView.findViewById(R.id.details_field)
@@ -59,7 +59,7 @@ class WeatherDetailFragment : Fragment(),WeatherDetailFragmentScreen {
         return rootView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lat = 12.9716
         val lng = 77.5946
@@ -95,7 +95,12 @@ class WeatherDetailFragment : Fragment(),WeatherDetailFragmentScreen {
     }
 
     override fun onWeatherDetailReceived(weatherEntity: WeatherEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            city.setText(weatherEntity.name +","+weatherEntity.sys.country);
+            //details.setText(weatherEntity.weather.get
+            temp.setText(java.lang.Double.toString(weatherEntity.main.temp))
+            //weatherIcon.setText(getActivity().getString(R.string.weather_sunny));
+
+
     }
 
     override fun onError() {

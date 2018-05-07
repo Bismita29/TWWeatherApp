@@ -1,5 +1,8 @@
 package tw.com.weatherapp.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,7 +20,11 @@ public class WeatherServiceHelper {
         final WeatherService weatherService;
         try {
             weatherService = new ApiClientProvider(BASE_URL, null).provideApiClient(false).create(WeatherService.class);
-            final Call<WeatherEntity> call = weatherService.fetchWeatherData(location,string);
+            Map<String, String> data = new HashMap<>();
+            data.put("APPID", "56c1624897220615bed152766c534e39");
+            data.put("q", location);
+
+            final Call<WeatherEntity> call = weatherService.fetchWeatherData(data);
             call.enqueue(new Callback<WeatherEntity>() {
                 @Override
                 public void onResponse(Call<WeatherEntity> call, Response<WeatherEntity> response) {

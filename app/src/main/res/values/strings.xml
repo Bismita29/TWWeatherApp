@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    <string name="api_id">8ff52f7cf4c2389cace4e601ba042f57</string>
     <string name="change_city">Change city</string>
     <string name="loading">Loading ...</string>
 
